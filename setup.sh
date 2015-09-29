@@ -9,7 +9,7 @@ fi
 
 for f in $DIR/* $DIR/.[!.]*;
 do
-	if [ `basename $f` = "setup.sh" ] && [ `basename $f` != ".git"]; then
+	if [ `basename $f` = "setup.sh" ] && [ `basename $f` != ".git" ]; then
 		continue
 	fi
 
