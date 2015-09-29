@@ -9,11 +9,11 @@ fi
 
 for f in $DIR/* $DIR/.[!.]*;
 do
-	if [ `basename $f` = "setup.sh" ] && [ `basename $f` != ".git" ]; then
-		continue
-	fi
+    if [ `basename $f` = "setup.sh" ] && [ `basename $f` != ".git" ]; then
+        continue
+    fi
 
-	ln -s $f ~/$(basename $f)
+    ln -s $f ~/$(basename $f)
 done
 
 # Deploy symlinks
