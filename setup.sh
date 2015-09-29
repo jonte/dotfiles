@@ -1,4 +1,11 @@
+#!/bin/bash
+
 DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
+
+if [ "`which curl`" == "" ]; then
+    echo "You need to install curl"
+    exit 1
+fi
 
 for f in $DIR/* $DIR/.[!.]*;
 do
