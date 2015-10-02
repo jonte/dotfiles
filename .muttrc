@@ -16,3 +16,7 @@ set edit_headers=yes
 
 # Include private settings
 source ~/.muttrc.private
+
+# Go up and down using arrow keys in pager
+bind pager <up> previous-line
+bind pager <down> next-line
