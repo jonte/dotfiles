@@ -34,3 +34,17 @@ set softtabstop=4
 
 " Highlight col 80
 set colorcolumn=80
+
+function LinuxStyle()
+    syn keyword cOperator likely unlikely
+    syn keyword cType u8 u16 u32 u64 s8 s16 s32 s64setlocal tabstop=8
+
+    setlocal shiftwidth=8
+    setlocal softtabstop=8
+    setlocal textwidth=80
+    setlocal noexpandtab
+
+    setlocal cindent
+    setlocal formatoptions=tcqlron
+    setlocal cinoptions=:0,l1,t0,g0,(0
+endfunction
