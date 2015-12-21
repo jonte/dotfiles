@@ -62,4 +62,8 @@ endfunction
 set listchars=tab:▸\ ,eol:¬
 set list
 
+" Don't highlight matching parenthesis
 let g:loaded_matchparen=1
+
+" Show line numbers
+set number
