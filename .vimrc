@@ -62,8 +62,8 @@ endfunction
 set listchars=tab:▸\ ,eol:¬
 set list
 
-" Don't highlight matching parenthesis
-let g:loaded_matchparen=1
+" Color matching parenthesis as bold white
+:hi MatchParen cterm=bold ctermbg=none ctermfg=white
 
 " Show line numbers
 set number
