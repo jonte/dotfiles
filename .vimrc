@@ -61,3 +61,5 @@ endfunction
 " Highlight whitespace
 set listchars=tab:▸\ ,eol:¬
 set list
+
+let g:loaded_matchparen=1
