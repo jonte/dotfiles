@@ -67,3 +67,6 @@ set list
 
 " Show line numbers
 set number
+
+set iskeyword-=:
+set iskeyword-=_
