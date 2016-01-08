@@ -68,8 +68,5 @@ set list
 " Show line numbers
 set number
 
-set iskeyword-=:
-set iskeyword-=_
-
 " Hanging function arguments
 set cino=(0
