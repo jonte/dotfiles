@@ -24,10 +24,10 @@ filetype plugin indent on
 set incsearch
 set hlsearch
 
-" Airline
-let g:airline#extensions#tabline#enabled = 1
-set laststatus=2
-set ttimeoutlen=50
+" Airline - disable if we have Syntastic
+let g:airline#extensions#tabline#enabled = 0
+"set laststatus=2
+"set ttimeoutlen=50
 
 " ctag navigation
 map gD :vsplit<cr>:tag <c-r><c-w><cr>
