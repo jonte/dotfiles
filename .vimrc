@@ -70,3 +70,18 @@ set number
 
 " Hanging function arguments
 set cino=(0
+
+" Syntastic settings
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+" Load project specific stuff
+if filereadable(".project.vimrc")
+    source .project.vimrc
+endif
