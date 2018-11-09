@@ -38,3 +38,7 @@ git clone --depth=1 https://github.com/rust-lang/rust.vim.git ~/.vim/bundle/rust
 
 # Syntastic
 git clone https://github.com/scrooloose/syntastic.git ~/.vim/bundle/syntastic
+
+# Color scheme
+mkdir -p ~/.vim/colors/ && \
+curl -LSso ~/.vim/colors/molokai.vim https://raw.githubusercontent.com/tomasr/molokai/master/colors/molokai.vim
