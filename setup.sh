@@ -7,6 +7,7 @@ if [ "`which curl`" == "" ]; then
     exit 1
 fi
 
+# Deploy symlinks
 for f in $DIR/* $DIR/.[!.]*;
 do
     if [ `basename $f` = "setup.sh" ] && [ `basename $f` != ".git" ]; then
@@ -16,7 +17,9 @@ do
     ln -s $f ~/$(basename $f)
 done
 
-# Deploy symlinks
+# Initialize git submodules
+git submodule init
+git submodule update
 
 # Install vim stuff
 
@@ -42,3 +45,6 @@ git clone https://github.com/scrooloose/syntastic.git ~/.vim/bundle/syntastic
 # Color scheme
 mkdir -p ~/.vim/colors/ && \
 curl -LSso ~/.vim/colors/molokai.vim https://raw.githubusercontent.com/tomasr/molokai/master/colors/molokai.vim
+
+# Deploy oh-my-tmux
+ln -s $DIR/oh-my-tmux/.tmux.conf ~/.tmux.conf
