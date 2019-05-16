@@ -1,3 +1,7 @@
+" Needed to support UTF-8 characters in listchars
+scriptencoding utf-8
+set encoding=utf-8
+
 " Load tags-file recursively
 set tags=./tags;/
 
