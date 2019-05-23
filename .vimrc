@@ -89,3 +89,6 @@ let g:syntastic_check_on_wq = 0
 if filereadable(".project.vimrc")
     source .project.vimrc
 endif
+
+" Don't show preview window in YCM
+set completeopt-=preview

@@ -40,7 +40,7 @@ git clone git://github.com/ntpeters/vim-better-whitespace.git ~/.vim/bundle/vim-
 git clone --depth=1 https://github.com/rust-lang/rust.vim.git ~/.vim/bundle/rust.vim
 
 # Syntastic
-git clone https://github.com/scrooloose/syntastic.git ~/.vim/bundle/syntastic
+git clone --recursive https://github.com/Valloric/YouCompleteMe.git ~/.vim/bundle/ycm
 
 # Color scheme
 mkdir -p ~/.vim/colors/ && \
@@ -48,3 +48,7 @@ curl -LSso ~/.vim/colors/molokai.vim https://raw.githubusercontent.com/tomasr/mo
 
 # Deploy oh-my-tmux
 ln -s $DIR/oh-my-tmux/.tmux.conf ~/.tmux.conf
+
+# Build YCM
+cd ~/.vim/bundle/ycm
+python3 install.py --clang-completer
