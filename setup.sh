@@ -55,3 +55,10 @@ ln -s $DIR/oh-my-tmux/.tmux.conf ~/.tmux.conf
 # Build YCM
 cd ~/.vim/bundle/ycm
 python3 install.py --clang-completer
+
+# oh-my-zsh
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
+# Install powerline-patched fonts
+echo "Enter password in order to install powerline-patched fonts"
+sudo apt-get install fonts-powerline
