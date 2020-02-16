@@ -42,6 +42,9 @@ git clone --depth=1 https://github.com/rust-lang/rust.vim.git ~/.vim/bundle/rust
 # Syntastic
 git clone --recursive https://github.com/Valloric/YouCompleteMe.git ~/.vim/bundle/ycm
 
+# fzf git plugin
+git clone https://github.com/junegunn/fzf ~/.vim/bundle/fzf
+
 # Color scheme
 mkdir -p ~/.vim/colors/ && \
 curl -LSso ~/.vim/colors/molokai.vim https://raw.githubusercontent.com/tomasr/molokai/master/colors/molokai.vim
