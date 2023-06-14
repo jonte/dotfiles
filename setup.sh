@@ -1,64 +1,72 @@
 #!/bin/bash
+set -euo pipefail
 
 DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
+NVIMDIR=~/.config/nvim/
+REQUIRED_COMMANDS="curl nvim tmux zsh"
 
-if [ "`which curl`" == "" ]; then
-    echo "You need to install curl"
-    exit 1
-fi
+function check_commands {
+	for CMD in $REQUIRED_COMMANDS; do
+		if [ "$(which "$CMD")" == "" ]; then
+		    echo "You need to install $CMD"
+		    exit 1
+		fi
+	done
+}
 
-# Deploy symlinks
-for f in $DIR/* $DIR/.[!.]*;
-do
-    if [ `basename $f` = "setup.sh" ] && [ `basename $f` != ".git" ]; then
-        continue
+function install_vim {
+	curl -fLso "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim \
+		--create-dirs \
+		https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
+	if [ ! -d "$NVIMDIR" ]; then
+		mkdir -p "$NVIMDIR"
+		ln -s "$DIR/init.vim" "$NVIMDIR/init.vim"
+	fi
+
+	nvim +PlugInstall +qa &> /dev/null
+}
+
+function install_tmux {
+	# Deploy oh-my-tmux
+    (
+        cd "$HOME" || exit
+        if [ ! -d ~/.tmux ]; then
+            git clone https://github.com/gpakosz/.tmux.git
+            ln -s -f .tmux/.tmux.conf .
+            ln -s "$DIR/.tmux.conf.local" .
+        fi
+    )
+}
+
+function install_zsh {
+    if [ ! -d ~/.oh-my-zsh ]; then
+        sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
     fi
 
-    ln -s $f ~/$(basename $f)
-done
+    if [ ! -f ~/.zshenv ]; then
+        ln -s "$DIR/.zshenv" ~/.zshenv
+    fi
+}
 
-# Initialize git submodules
-git submodule init
-git submodule update
+function install_fzf {
+    if [ ! -d ~/.fzf ]; then
+        git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+        ~/.fzf/install
+    fi
+}
 
-# Install vim stuff
+function install_os_packages {
+	# Install powerline-patched fonts
+    if ! dpkg -l fonts-powerline &> /dev/null; then
+        echo "Enter password in order to install powerline-patched fonts"
+        sudo apt-get install fonts-powerline
+    fi
+}
 
-# Pathogen
-mkdir -p ~/.vim/autoload ~/.vim/bundle && \
-curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
-
-# Airline
-git clone https://github.com/bling/vim-airline ~/.vim/bundle/vim-airline
-
-# Fugitive
-git clone git://github.com/tpope/vim-fugitive.git ~/.vim/bundle/vim-fugitive
-
-# Better whitespace
-git clone git://github.com/ntpeters/vim-better-whitespace.git ~/.vim/bundle/vim-better-whitespace
-
-# Rust syntax highlight
-git clone --depth=1 https://github.com/rust-lang/rust.vim.git ~/.vim/bundle/rust.vim
-
-# Syntastic
-git clone --recursive https://github.com/Valloric/YouCompleteMe.git ~/.vim/bundle/ycm
-
-# fzf git plugin
-git clone https://github.com/junegunn/fzf ~/.vim/bundle/fzf
-
-# Color scheme
-mkdir -p ~/.vim/colors/ && \
-curl -LSso ~/.vim/colors/molokai.vim https://raw.githubusercontent.com/tomasr/molokai/master/colors/molokai.vim
-
-# Deploy oh-my-tmux
-ln -s $DIR/oh-my-tmux/.tmux.conf ~/.tmux.conf
-
-# Build YCM
-cd ~/.vim/bundle/ycm
-python3 install.py --clang-completer
-
-# oh-my-zsh
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-
-# Install powerline-patched fonts
-echo "Enter password in order to install powerline-patched fonts"
-sudo apt-get install fonts-powerline
+check_commands
+install_vim
+install_tmux
+install_zsh
+install_fzf
+install_os_packages
