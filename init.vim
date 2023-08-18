@@ -140,6 +140,10 @@ vim.wo.signcolumn = "yes"
 -- " 300ms of no cursor movement to trigger CursorHold
 -- set updatetime=300
 vim.opt.updatetime = 100
+
+vim.diagnostic.config {
+    float = {border = "rounded"}
+}
 EOF
 
 colorscheme monokai256
