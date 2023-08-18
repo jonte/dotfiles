@@ -57,8 +57,8 @@ vim.api.nvim_create_autocmd("CursorHold", {
     })
 
 -- Goto previous/next diagnostic warning/error
-vim.keymap.set("n", "g[", vim.diagnostic.goto_prev, keymap_opts)
-vim.keymap.set("n", "g]", vim.diagnostic.goto_next, keymap_opts)
+vim.keymap.set("n", "gp", vim.diagnostic.goto_prev, keymap_opts)
+vim.keymap.set("n", "gn", vim.diagnostic.goto_next, keymap_opts)
 end
 
 -- Configure LSP through rust-tools.nvim plugin.
