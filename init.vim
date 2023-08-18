@@ -1,6 +1,6 @@
 call plug#begin(has('nvim') ? stdpath('data') . '/plugged' : '~/.vim/plugged')
 
-Plug 'shannonmoeller/vim-monokai256'
+Plug 'jonte/monokai'
 Plug 'bling/vim-airline'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'rust-lang/rust.vim'
