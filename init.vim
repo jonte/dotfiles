@@ -97,6 +97,7 @@ local opts = {
     }
 
 require("rust-tools").setup(opts)
+require'lspconfig'.clangd.setup{}
 
 -- Setup Completion
 -- See https://github.com/hrsh7th/nvim-cmp#basic-configuration
@@ -157,3 +158,4 @@ filetype plugin indent on
 set tabstop=4
 set shiftwidth=4
 set expandtab
+nnoremap <silent> ca <cmd>lua vim.lsp.buf.code_action()<CR> 
