@@ -1,20 +1,20 @@
 call plug#begin(has('nvim') ? stdpath('data') . '/plugged' : '~/.vim/plugged')
 
-Plug 'jonte/molokai'
+Plug 'altercation/vim-colors-solarized'
 Plug 'bling/vim-airline'
-Plug 'ntpeters/vim-better-whitespace'
-Plug 'rust-lang/rust.vim'
-Plug 'junegunn/fzf'
-Plug 'kergoth/vim-bitbake'
-Plug 'mfussenegger/nvim-lint'
-Plug 'liuchengxu/graphviz.vim'
-Plug 'neovim/nvim-lspconfig'
-Plug 'hrsh7th/nvim-cmp'
 Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'hrsh7th/cmp-path'
+Plug 'hrsh7th/nvim-cmp'
 Plug 'hrsh7th/vim-vsnip'
+Plug 'jonte/molokai'
+Plug 'junegunn/fzf'
+Plug 'kergoth/vim-bitbake'
+Plug 'liuchengxu/graphviz.vim'
+Plug 'mfussenegger/nvim-lint'
+Plug 'neovim/nvim-lspconfig'
+Plug 'ntpeters/vim-better-whitespace'
+Plug 'rust-lang/rust.vim'
 Plug 'simrat39/rust-tools.nvim'
-Plug 'altercation/vim-colors-solarized'
 
 call plug#end()
 
