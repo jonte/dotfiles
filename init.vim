@@ -27,13 +27,6 @@ if vim.fn.executable('shellcheck') == 1 then
 	require('lint').linters_by_ft.sh = {'shellcheck',}
 end
 
-vim.api.nvim_create_autocmd({ "BufWritePost" }, {
-  callback = function()
-    require("lint").try_lint()
-  end,
-})
-
-
 local function on_attach(client, buffer)
     local keymap_opts = { buffer = buffer }
     -- Code navigation and shortcuts
