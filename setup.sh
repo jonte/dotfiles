@@ -64,9 +64,16 @@ function install_os_packages {
     fi
 }
 
+function install_gdb_dashboard {
+    if [ ! -f ~/.gdbinit ]; then
+	ln -s "$DIR/.gdbinit" ~/.gdbinit
+    fi
+}
+
 check_commands
 install_vim
 install_tmux
 install_zsh
 install_fzf
+install_gdb_dashboard
 install_os_packages
