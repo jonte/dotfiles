@@ -12,6 +12,7 @@ Plug 'liuchengxu/graphviz.vim'
 Plug 'mfussenegger/nvim-lint'
 Plug 'neovim/nvim-lspconfig'
 Plug 'ntpeters/vim-better-whitespace'
+Plug 'preservim/nerdtree'
 Plug 'rust-lang/rust.vim'
 Plug 'simrat39/rust-tools.nvim'
 
