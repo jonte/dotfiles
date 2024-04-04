@@ -14,6 +14,7 @@ Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'hrsh7th/cmp-path'
 Plug 'hrsh7th/vim-vsnip'
 Plug 'simrat39/rust-tools.nvim'
+Plug 'altercation/vim-colors-solarized'
 
 call plug#end()
 
@@ -147,7 +148,9 @@ vim.diagnostic.config {
 }
 EOF
 
-colorscheme monokai256
+let g:solarized_termcolors=256
+colorscheme solarized
+set background=dark
 set mouse=a
 set hlsearch
 set incsearch
