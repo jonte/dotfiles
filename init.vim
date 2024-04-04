@@ -101,6 +101,7 @@ require("rust-tools").setup(opts)
 require'lspconfig'.clangd.setup{
     on_attach = on_attach,
 }
+require'lspconfig'.pylsp.setup{}
 
 -- Setup Completion
 -- See https://github.com/hrsh7th/nvim-cmp#basic-configuration
