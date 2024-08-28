@@ -66,7 +66,13 @@ function install_os_packages {
 
 function install_gdb_dashboard {
     if [ ! -f ~/.gdbinit ]; then
-	ln -s "$DIR/.gdbinit" ~/.gdbinit
+        ln -s "$DIR/.gdbinit" ~/.gdbinit
+    fi
+}
+
+function install_z {
+    if [ ! -f ~/.z.sh ]; then
+        curl https://raw.githubusercontent.com/rupa/z/master/z.sh -o ~/.z.sh
     fi
 }
 
@@ -76,4 +82,5 @@ install_tmux
 install_zsh
 install_fzf
 install_gdb_dashboard
+install_z
 install_os_packages
