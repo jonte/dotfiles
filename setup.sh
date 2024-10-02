@@ -24,7 +24,7 @@ function install_vim {
 		ln -s "$DIR/init.vim" "$NVIMDIR/init.vim"
 	fi
 
-	nvim +PlugInstall +qa &> /dev/null
+	nvim +PlugInstall +qa
 }
 
 function install_tmux {
