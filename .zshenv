@@ -5,7 +5,7 @@ if [ -f "$HOME/.cargo/env" ]; then
     . "$HOME/.cargo/env"
 fi
 
-export PATH="$PATH:/opt/nvim-linux64/bin:~/.bin/"
+export PATH="$PATH:/opt/nvim-linux64/bin:$HOME/.bin"
 
 # Z 'jump around' integration with fzf
 source ~/.z.sh
