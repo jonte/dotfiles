@@ -1,0 +1,2 @@
+# Ghostty gets stuck in this menu, so let's disable it.
+unbind -n MouseDown3Pane
